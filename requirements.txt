@@ -1,0 +1,35 @@
+#use this commad >>>> pip install -r requirements.txt   <<<<<<
+numpy==1.21.5
+opencv-python==4.5.4.60
+torch==1.10.0
+torchvision==0.11.1
+ultralytics-yolov5==0.0.6
+
+
+
+"""1..Import Libraries: The code begins by importing necessary libraries including OpenCV (cv2), PyTorch (torch), and NumPy (numpy).
+
+2..points: An empty list used to store points obtained from mouse events.
+
+3...POINTS function: This function is called whenever a mouse event occurs on the window named 'FRAME'. It prints the coordinates of the mouse pointer when it moves.
+Set up Mouse Callback: It creates a window named 'FRAME' and sets the mouse callback function to POINTS for this window.
+
+4..Load YOLOv5 Model: The YOLOv5 model is loaded using the torch.hub.load() function from the ultralytics/yolov5 repository. The model used here is YOLOv5s, which is a smaller version of the YOLOv5 model.
+
+5..Open Video Capture: It opens a video file named 'parking.mp4' using cv2.VideoCapture().
+
+6..Define Parking Area: An array named area is defined containing coordinates of points that define the parking area polygon.
+
+7..Object Detection and Tracking Loop:The loop iterates through each frame of the video.
+
+8..Resizes the frame to a size of (1020, 600).
+9..Passes the frame through the YOLOv5 model for object detection using model(frame).
+10..Iterates over the detected objects and draws bounding boxes around them on the frame.
+11..Calculates the centroid of each detected car bounding box and checks if it lies within the defined parking area polygon.
+12..If a car's centroid lies within the parking area, it counts as a parked car.
+13..Draws the parking area polygon on the frame.
+14..Displays the count of parked cars on the frame.
+15..Waits for a key press to exit the loop.
+16..Display Frame and Handle User Events: It displays the frame with detected objects and waits for a key press. If the key pressed is ESC (key code 27), it breaks out of the loop.
+
+Release Resources: After the loop ends, it releases the video capture and closes all OpenCV windows."""
